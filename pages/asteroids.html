@@ -20,7 +20,7 @@
 <meta name="keywords" content="" />
 <meta name="author" content="Your name" />
 <link rel="shortcut icon" href="../images/favicon.ico">
-<title>Webfolio | Responsive Retina Ready</title>
+<title>Webfolio | Ken Urata</title>
 
 <!-- Mobile viewport optimized: j.mp/bplateviewport -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,14 +29,23 @@
 <link href="../css/style.css" rel="stylesheet" />
 <link href="../css/shortcodes.css" rel="stylesheet" />
 <link href="../css/responsive.css" rel="stylesheet" />
-<link href="../css/slider.css" rel="stylesheet" />
 <link href="../css/font-awesome.css" rel="stylesheet" />
 <link href="../css/font-awesome.min.css" rel="stylesheet" />
+<link href="../css/swipebox.css" rel="stylesheet" >
 
 <!-- Importing Fonts -->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
 </head>
+
+<!-- Asteroids -->
+<script type="application/javascript" src="./jquery-1.11.1.js"></script>
+<script type="application/javascript" src="./moving_object.js"></script>
+<script type="application/javascript" src="./asteroid.js"></script>
+<script type="application/javascript" src="./bullet.js"></script>
+<script type="application/javascript" src="./ship.js"></script>
+<script type="application/javascript" src="./game.js"></script>
+
 
 <body>
 <div id="wrapper"> 
@@ -53,13 +62,13 @@
         <li><a id="link-profile" href="../profile.html" >
           <div class="menu-name">My Profile</div>
           </a></li>
-        <li><a id="link-portfolio" href="../portfolio.html" >
+        <li class="current"><a id="link-portfolio" href="../portfolio.html" >
           <div class="menu-name">Portfolio</div>
           </a></li>
         <li><a id="link-resume" href="../resume.pdf" >
           <div class="menu-name">Resume</div>
           </a></li>
-        <li class="current"><a id="link-contact" href="../contact.html">
+        <li><a id="link-contact" href="../contact.html">
           <div class="menu-name">Contact</div>
           </a></li>
       </ul>
@@ -69,15 +78,28 @@
   
   <div id="container"> 
     
-    <!-- PROFILE SECTION -->
+    <!-- PORTFOLIO SECTION -->
     <section id="profile">
-      <div class="content thank-you">
-        <h1>Thank You</h1>
-        <p>Your email was sent successfully!!!</p>
-        <p>I will answer you as soon as possible.</p>
+      <div class="content"> 
+        
+        <!-- BREADCRUMB -->
+        <h3 class="breadcrumb navy">Asteroids</h5>
+        <!-- SINGLE PROJECTS MODEL 1 -->
+        <p>Directional arrows to move, Space Bar to shoot.  Come back for more updates!</p>
+        <canvas width="1000" height="600"></canvas>
+
+        <script type="text/javascript">
+          var canvas = document.getElementsByTagName("canvas")[0];
+          var context = canvas.getContext("2d");
+          var game = new Asteroids.Game(context);
+          game.bindKeyHandlers();
+          game.addAsteroids(20);
+          game.start();
+        </script>
+
       </div>
     </section>
-    <!-- PROFILE SECTION ENDS --> 
+    <!-- PORTFOLIO SECTION ENDS --> 
     
     <!-- FOOTER SECTION -->
     <div id="footer">
@@ -95,6 +117,29 @@
 <!-- JavaScript Files --> 
 <script src="../js/jquery.min_1_9.js"></script> 
 <script type="text/javascript" src="../js/jquery.min.js"></script> 
-<script type="text/javascript" src="../js/functions.js"></script>
+<script type="text/javascript" src="../js/functions.js"></script> 
+<script src="../lib/ios-orientationchange-fix.js"></script> 
+<script src="../lib/jquery-2.0.3.min.js"></script> 
+<script src="../lib/jquery.isotope.min.js"></script> 
+<script src="../js/jquery.swipebox.js"></script> 
+<script src="../js/responsiveslides.min.js"></script> 
+<script>
+$(function () {
+  $("#slider").responsiveSlides({
+    auto: false,
+    pager: false,
+    nav: true,
+    speed: 500,
+    namespace: "callbacks",
+    before: function () {
+      $('.events').append("<li>before event fired.</li>");
+    },
+    after: function () {
+      $('.events').append("<li>after event fired.</li>");
+    }
+  });
+
+});
+</script>
 </body>
 </html>
