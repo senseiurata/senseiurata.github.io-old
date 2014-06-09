@@ -146,6 +146,7 @@
         },
 
         onKeyDown: function (event) {
+            event.preventDefault();
             this._pressed[event.which] = true;
         },
 
