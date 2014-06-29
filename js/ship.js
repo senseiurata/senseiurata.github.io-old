@@ -13,6 +13,7 @@
         this.images = images;
         this.imgSwapCounter = 0;
         this.bulletDelay = 0;
+        this.pendingFireBullet = false;
     };
 
     Ship.inherits(Asteroids.MovingObject);
@@ -51,7 +52,7 @@
         var radian = null;
 
         if (this.vel[0] || this.vel[1]) {
-            radian = calcRadian(this.vel[0], this.vel[1]);
+            radian = this.calcRadian(this.vel[0], this.vel[1]);
         }
         else {
             radian = 0;
@@ -90,41 +91,49 @@
         context.restore(); 
     }
 
-    function calcRadian(x, y) { 
-        return Math.atan2(y, x);
-    }
-
-
     Ship.prototype.fireBullet = function () {
         if (this.vel[0] || this.vel[1]) {
-            var bulletVel = Asteroids.Bullet.calcVel(this.vel); 
 
-            if (this.bulletDelay > Ship.BULLET_COOLDOWN) {
-                this.bulletDelay -= Ship.BULLET_COOLDOWN;
+            this.bulletDelay += 1;
 
+            if (this.pendingFireBullet && 
+                this.bulletDelay >= Ship.BULLET_COOLDOWN) {
+
+                this.bulletDelay = 0;
+                this.pendingFireBullet = false;
+
+                var bulletVel = Asteroids.Bullet.calcVel(this.vel); 
+
+                var newPos = this.pos.slice();
+
+                // Single bullet
                 // return [new Asteroids.Bullet(
-                //     this.pos.slice(),
+                //     newPos,
                 //     bulletVel,
                 //     game
                 // )];
-                var newPos = this.pos.slice();
 
+                var radian = this.calcRadian(this.vel[0], this.vel[1]);
+                
                 return [
                     (new Asteroids.Bullet(
-                        [newPos[0] - 15, newPos[1]],
+                        [newPos[0] + 15 * Math.sin(radian), newPos[1] - 15 * Math.cos(radian)],
                         bulletVel,
                         game
                         )
                     ),
                     (new Asteroids.Bullet(
-                        [newPos[0] + 15, newPos[1]],
+                        [newPos[0] - 15 * Math.sin(radian), newPos[1] + 15 * Math.cos(radian)],
                         bulletVel,
                         game
                         )
                     )
                 ];
             }
-            this.bulletDelay += 1;
+            else {
+                this.pendingFireBullet = false;
+            }
+
         }
         return null;
     }

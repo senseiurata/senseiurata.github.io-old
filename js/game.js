@@ -86,6 +86,7 @@
         this.checkCollisions();
         this.checkBounds();
         this.ship.wrap();
+        this.fireBullet();
         this.isOutOfBounds();
         this.handleKeyPresses();
     }
@@ -122,21 +123,6 @@
             this.asteroids[i].wrap();
         }
     }
-
-    // function computeAccel(currentVel, leftOrUp) {
-    //     if(leftOrUp) {
-    //         if (Asteroids.Ship.MAX_VELOCITY + currentVel > 0) {
-    //             return -Math.sqrt(Asteroids.Ship.MAX_VELOCITY + currentVel) * Asteroids.Ship.ACCEL_COEFFICIENT;
-    //         }
-    //         return 0;
-    //     }
-    //     else {
-    //         if (Asteroids.Ship.MAX_VELOCITY - currentVel > 0) {
-    //             return Math.sqrt(Asteroids.Ship.MAX_VELOCITY - currentVel) * Asteroids.Ship.ACCEL_COEFFICIENT;
-    //         }
-    //         return 0;
-    //     }
-    // }
 
     var Key = Game.Key = {
         _pressed: {},
@@ -195,7 +181,7 @@
             ship.power([computeAccel(ship.vel[0], false), 0]);
         }
         if (Key.isDown(Key.KEY_MAP.SPACE_BAR)) {
-            this.fireBullet();            
+            ship.pendingFireBullet = true;            
         }
     }    
 
@@ -204,29 +190,6 @@
         var that = this;
 
         $doc.ready(function () {
-            // $doc.on('keydown', function(event) {
-
-            //     var pressedKey = event.which;
-            //     var ship = that.ship;
-
-            //     switch(pressedKey) {
-            //         case 37: //left
-            //             ship.power([computeAccel(ship.vel[0], true), 0]);
-            //             break;
-            //         case 38: //up
-            //             ship.power([0, computeAccel(ship.vel[1], true)]);
-            //             break;
-            //         case 39: //right
-            //             ship.power([computeAccel(ship.vel[0], false), 0]);
-            //             break;
-            //         case 40: //down
-            //             ship.power([0, computeAccel(ship.vel[1], false)]);
-            //             break;
-            //         case 32: //spacebar
-            //             that.fireBullet();
-            //             break;
-            //     }
-            // });
             $doc.on('keyup', function(event) {
                 Key.onKeyUp(event);
             });
