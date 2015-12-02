@@ -1,0 +1,41 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  p {
+    text-align: left;
+    font-size: 1rem;
+  }
+
+  .profile-pic {
+    flex: 0 0 auto;
+    margin: 0 auto;
+    height: 12.5rem;
+    width: 12.5rem;
+  }
+}
+
+@media screen and (min-width: 32rem) {
+  .profile {
+    text-align: left;
+  }
+}
+
+@media screen and (min-width: 42rem) {
+  .profile {
+    flex-direction: row;
+
+    .profile-pic {
+      margin-right: 2rem;
+    }
+  }
+}

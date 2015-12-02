@@ -1,0 +1,22 @@
+.rc-portfolio-item {
+  width: 20rem;
+
+  .screenshot {
+    width: 100%;
+  }
+
+  .name {
+    margin: 0.5rem 0;
+
+    a {
+      font-size: 1.25rem;
+      color: rgb(48, 48, 48);
+    }
+  }
+
+  .description {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    color: rgb(48, 48, 48);
+  }
+}

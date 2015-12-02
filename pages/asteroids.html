@@ -42,6 +42,8 @@
 <script type="application/javascript" src="../js/jquery-1.11.1.js"></script>
 <script type="application/javascript" src="../js/moving_object.js"></script>
 <script type="application/javascript" src="../js/asteroid.js"></script>
+<script type="application/javascript" src="../js/asteroid2.js"></script>
+<script type="application/javascript" src="../js/asteroid_fire.js"></script>
 <script type="application/javascript" src="../js/bullet.js"></script>
 <script type="application/javascript" src="../js/ship.js"></script>
 <script type="application/javascript" src="../js/game.js"></script>
@@ -93,7 +95,8 @@
           var context = canvas.getContext("2d");
           var game = new Asteroids.Game(context);
           game.bindKeyHandlers();
-          game.addAsteroids(20);
+          game.addAsteroids(10);
+          game.addAsteroids2(10);
           game.start();
         </script>
 

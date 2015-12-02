@@ -4,9 +4,12 @@
     var Game = Asteroids.Game = function (ctx) {
         this.ctx = ctx;
         this.asteroids = [];
+        this.asteroidFires = [];
         this.bullets = [];
         this.images = [new Image(), new Image()];
         this.loadImages();
+
+        this.delay = 0;
 
         this.ship = new Asteroids.Ship(
             [Game.DIM_X / 2, Game.DIM_Y / 2],
@@ -36,8 +39,8 @@
             })();
         }
 
-        this.images[0].src = 'starship.png'
-        this.images[1].src = 'starship2.png'
+        this.images[0].src = '../images/asteroids/starship.png'
+        this.images[1].src = '../images/asteroids/starship2.png'
     }
 
     Game.prototype.addAsteroids = function (numAsteroids) {
@@ -46,6 +49,25 @@
                 Game.DIM_X,
                 Game.DIM_Y)
             );
+        }
+    }
+
+    Game.prototype.addAsteroids2 = function (numAsteroids) {
+        for(var i = 0; i < numAsteroids; i++) {
+            this.asteroids.push(Asteroids.randomAsteroid2(
+                Game.DIM_X,
+                Game.DIM_Y)
+            );
+        }
+    }
+
+    Game.prototype.addAsteroidFires = function () {
+        var asteroids = this.asteroids;
+
+        for(var i = 0; i < asteroids.length; i++) {
+            this.asteroidFires.push(Asteroids.randomAsteroidFire(
+                asteroids[i].pos.slice()
+            ));
         }
     }
 
@@ -61,6 +83,10 @@
             this.asteroids[i].draw(this.ctx);
         }
 
+        for(var i = 0; i < this.asteroidFires.length; i++) {
+            this.asteroidFires[i].draw(this.ctx);
+        }
+
         for(var j = 0; j < this.bullets.length; j++) {
             this.bullets[j].draw(this.ctx);
         }
@@ -71,6 +97,10 @@
     Game.prototype.move = function () {
         for(var i = 0; i < this.asteroids.length; i++) {
             this.asteroids[i].move();
+        }
+
+        for(var i = 0; i < this.asteroidFires.length; i++) {
+            this.asteroidFires[i].move();
         }
 
         for(var j = 0; j < this.bullets.length; j++) {
@@ -87,6 +117,13 @@
         this.checkBounds();
         this.ship.wrap();
         this.fireBullet();
+
+        if (this.delay > 60) {
+            this.addAsteroidFires();
+            this.delay = 0;
+        }
+        this.delay += 1;
+
         this.isOutOfBounds();
         this.handleKeyPresses();
     }
@@ -102,6 +139,13 @@
     Game.prototype.checkCollisions = function () {
         for(var i = 0; i < this.asteroids.length; i++) {
             if (this.asteroids[i].isCollidedWith(this.ship)) {
+                // alert("Game has ended!");
+                this.stop();
+            }
+        }
+
+        for(var i = 0; i < this.asteroidFires.length; i++) {
+            if (this.asteroidFires[i].isCollidedWith(this.ship)) {
                 // alert("Game has ended!");
                 this.stop();
             }
@@ -223,6 +267,14 @@
         }
     }
 
+    Game.prototype.removeAsteroidFires = function (asteroidFire) {
+        var asteroidIdx = this.asteroidFires.indexOf(asteroidFire);
+
+        if (asteroidIdx !== -1) {
+            this.asteroidFires.splice(asteroidIdx, 1);
+        }
+    }
+
     Game.prototype.isOutOfBounds = function () {
         var bullets = this.bullets
 
@@ -232,6 +284,17 @@
             if (pos[0] < 0 || pos[0] > Asteroids.Game.DIM_X ||
                 pos[1] < 0 || pos[1] > Asteroids.Game.DIM_Y) {
                 this.removeBullet(bullets[i]);
+            }
+        }
+
+        var asteroidFires = this.asteroidFires;
+
+        for (var i = 0; i < asteroidFires.length; i++) {
+            var pos = asteroidFires[i].pos;
+
+            if (pos[0] < 0 || pos[0] > Asteroids.Game.DIM_X ||
+                pos[1] < 0 || pos[1] > Asteroids.Game.DIM_Y) {
+                this.removeAsteroidFires(asteroidFires[i]);
             }
         }
     }

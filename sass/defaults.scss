@@ -1,0 +1,25 @@
+body, ul, button, h1, iframe {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  list-style: none;
+
+  a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+
+    &:hover {
+      color: #5bc0de;
+      text-decoration: underline;
+    }
+  }
+
+  > .content {
+    background: rgb(0, 0, 0);
+  }
+}
+
+p {
+  margin: 0.75rem 0;
+}

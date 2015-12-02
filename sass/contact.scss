@@ -1,0 +1,23 @@
+.contact-info {
+  display: flex;
+  flex-direction: column;
+
+  .location {
+    flex: 1 0 auto;
+  }
+
+  .info {
+    padding: 1rem;
+    flex: 1 0 20%;
+  }
+}
+
+@media screen and (min-width: 42rem) {
+  .contact-info {
+    flex-direction: row;
+
+    .profile-pic {
+      margin-right: 2rem;
+    }
+  }
+}

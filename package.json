@@ -1,0 +1,19 @@
+{
+  "name": "senseiurata.github.io",
+  "version": "0.0.0",
+  "description": "Ken's Web Portfolio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/senseiurata/senseiurata.github.io.git"
+  },
+  "author": "Ken Urata <senseiurata@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/senseiurata/senseiurata.github.io/issues"
+  },
+  "homepage": "https://github.com/senseiurata/senseiurata.github.io#readme"
+}

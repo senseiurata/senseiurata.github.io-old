@@ -114,7 +114,7 @@
                 // )];
 
                 var radian = this.calcRadian(this.vel[0], this.vel[1]);
-                
+
                 return [
                     (new Asteroids.Bullet(
                         [newPos[0] + 15 * Math.sin(radian), newPos[1] - 15 * Math.cos(radian)],
