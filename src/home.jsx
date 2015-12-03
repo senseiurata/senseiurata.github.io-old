@@ -10,7 +10,7 @@ module.exports = React.createClass({
             <img className="profile-pic" src="images/profile-1.jpg" alt="" />
             <div>
               <p>Hello, I'm Ken.</p>
-              <p>I am a front-end web developer.</p>
+              <p>I am a front-end web developer located in San Francisco, CA.</p>
               <div className="action-items">
                 <Link className="to-profile" to="/profile">See My Profile</Link>
               </div>

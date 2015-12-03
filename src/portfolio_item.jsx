@@ -8,11 +8,11 @@ module.exports = React.createClass({
       <article className="rc-portfolio-item">
         {
           this.props.externalUrl ? (
-            <a href={ this.props.externalUrl } target="_blank">
+            <a className="visual-link" href={ this.props.externalUrl } target="_blank">
               <img className="screenshot" src={ this.props.imgUrl } />
             </a>
           ) : (
-            <Link to={ this.props.url }>
+            <Link className="visual-link" to={ this.props.url }>
               <img className="screenshot" src={ this.props.imgUrl } />
             </Link>
           )

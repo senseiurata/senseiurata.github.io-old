@@ -1,6 +1,10 @@
 .rc-portfolio-item {
   width: 20rem;
 
+  .visual-link {
+    display: inline-block;
+  }
+
   .screenshot {
     width: 100%;
   }

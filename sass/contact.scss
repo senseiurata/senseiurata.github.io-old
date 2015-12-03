@@ -3,12 +3,12 @@
   flex-direction: column;
 
   .location {
-    flex: 1 0 auto;
+    display: none;
   }
 
   .info {
     padding: 1rem;
-    flex: 1 0 20%;
+    flex: 1 0 auto;
   }
 }
 
@@ -16,8 +16,14 @@
   .contact-info {
     flex-direction: row;
 
-    .profile-pic {
-      margin-right: 2rem;
+    .location {
+      display: block;
+      flex: 1 0 auto;
+    }
+
+    .info {
+      padding: 1rem;
+      flex: 1 0 20%;
     }
   }
 }
