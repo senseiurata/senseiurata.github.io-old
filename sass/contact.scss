@@ -2,8 +2,11 @@
   display: flex;
   flex-direction: column;
 
-  .location {
-    display: none;
+
+  .avatar {
+    margin: 0 auto;
+    width: 10rem;
+    height: 10rem;
   }
 
   .info {
@@ -15,15 +18,16 @@
 @media screen and (min-width: 42rem) {
   .contact-info {
     flex-direction: row;
+    justify-content: center;
 
-    .location {
-      display: block;
-      flex: 1 0 auto;
+    .avatar {
+      flex: 0 0 auto;
+      margin: 0;
     }
 
     .info {
+      flex: 0 0 auto;
       padding: 1rem;
-      flex: 1 0 20%;
     }
   }
 }

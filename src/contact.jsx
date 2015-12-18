@@ -10,9 +10,7 @@ module.exports = React.createClass({
         nextText="Back to Home"
       >
         <div className="contact-info">
-          <div className="location">
-            <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=it&amp;geocode=&amp;q=sf&amp;ie=UTF8&amp;hq=&amp;hnear=San&nbsp;Francisco,&nbsp;CA&amp;t=m&amp;z=11&amp;ll=37.782112,-122.418648&amp;output=embed"></iframe>
-          </div>
+          <img className="avatar" src="images/avatar.jpg" />
           <div className="info">
             <p>Ken Urata</p>
             <p>San Francisco - California - (U.S.A)</p>
