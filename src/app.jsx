@@ -1,4 +1,5 @@
 var React = require('react');
+var ReactDOM = require('react-dom');
 var Routes = require('./routes');
 
-React.render(Routes, document.getElementById('site_content'));
+ReactDOM.render(Routes, document.getElementById('site_content'));

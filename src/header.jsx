@@ -13,12 +13,14 @@ module.exports = React.createClass({
   },
   render: function render () {
     var menuOpen = this.state.menuOpen;
+    var path = this.props.location.pathname;
 
     // can't use <use> in react :'(
     var useTagWorkaround = {
       __html: '<title>' + (menuOpen ? 'Menu Close' : 'Menu Open') + '</title>' + 
               '<use xlink:href="images/header.svg#' + (menuOpen ? 'close' : 'hamburger') + '"></use>'
     };
+
 
     return (
       <header>
@@ -29,13 +31,28 @@ module.exports = React.createClass({
         <nav className={ (menuOpen ? 'state-open' : '') }>
           <ul>
             <li>
-              <Link to="/profile">Profile</Link>
+              <Link
+                className={ path == '/profile' ? 'state-open' : '' }
+                to="/profile"
+              >
+                Profile
+              </Link>
             </li>
             <li>
-              <Link to="/portfolio">Portfolio</Link>
+              <Link
+                className={ path == '/portfolio' ? 'state-open' : '' }
+                to="/portfolio"
+              >
+                Portfolio
+              </Link>
             </li>
             <li>
-              <Link to="/contact">Contact</Link>
+              <Link
+                className={ path == '/contact' ? 'state-open' : '' }
+                to="/contact"
+              >
+                Contact
+              </Link>
             </li>
           </ul>
         </nav>

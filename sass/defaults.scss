@@ -20,6 +20,10 @@ body, ul, button, h1, iframe {
   }
 }
 
+html, body, #site_content {
+  height: 100%;
+}
+
 p {
   margin: 0.75rem 0;
 }

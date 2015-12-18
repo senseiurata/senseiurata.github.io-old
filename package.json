@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/senseiurata/senseiurata.github.io/issues"
   },
-  "homepage": "https://github.com/senseiurata/senseiurata.github.io#readme"
+  "homepage": "https://github.com/senseiurata/senseiurata.github.io#readme",
+  "dependencies": {
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3"
+  },
+  "devDependencies": {
+    "babel-preset-react": "^6.3.13",
+    "babelify": "^7.2.0"
+  }
 }

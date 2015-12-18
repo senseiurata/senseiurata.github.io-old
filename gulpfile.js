@@ -1,3 +1,4 @@
+var babelify = require('babelify');
 var browserify = require('browserify');
 var buffer = require('vinyl-buffer');
 var clean = require('gulp-clean');
@@ -6,7 +7,6 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var minifyCss = require('gulp-minify-css');
 var notify = require('gulp-notify');
-var reactify = require('reactify');
 var sass = require('gulp-sass');
 var source = require('vinyl-source-stream');
 var uglify = require('gulp-uglify');
@@ -14,7 +14,7 @@ var watchify = require('watchify');
 
 var bundler = watchify(browserify({
   entries: ['./src/app.jsx'],
-  transform: [reactify],
+  transform: [[ 'babelify', { 'presets': ['react'] }] ],
   extensions: ['.jsx'],
   debug: true,
   cache: {},

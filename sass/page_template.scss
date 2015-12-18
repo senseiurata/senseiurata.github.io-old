@@ -1,12 +1,18 @@
 .page-template {
-  display: flex;
-  padding: 2rem 0;
-  align-items: center;
+  display: block;
+  position: fixed;
+  top: 3rem;
+  right: 0;
+  bottom: 3rem;
+  left: 0;
+  overflow-y: auto;
 
   > section {
-    box-sizing: border-box;
+    position: relative;
     margin: 0 auto;
-    width: 50rem;
+    max-width: 50rem;
+    top: 3rem;
+    box-sizing: border-box;
     padding: 2rem;
     background: rgb(239, 239, 239);
     color: rgb(48, 48, 48);
@@ -52,8 +58,6 @@
 
 @media screen and (min-width: 32rem) {
   .page-template {
-    padding: 5rem 0;
-
     .action-item {
       text-align: right;
     }

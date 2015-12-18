@@ -7,7 +7,7 @@ module.exports = React.createClass({
   render: function render () {
     return (
       <div className="main-container">
-        <Header />
+        <Header location={ this.props.location } />
 
         {this.props.children}
 

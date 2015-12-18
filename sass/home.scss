@@ -1,12 +1,18 @@
 .home-page {
-  display: flex;
-  align-items: center;
-  height: 40rem;
+  display: block;
+  position: fixed;
+  top: 3rem;
+  right: 0;
+  bottom: 3rem;
+  left: 0;
+  overflow-y: auto;
   text-align: center;
 
   .content {
+    position: relative;
+    top: 3rem;
     margin: 0 auto;
-    width: 50rem;
+    max-width: 50rem;
   }
 
   .short-profile {
