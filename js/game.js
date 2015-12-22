@@ -39,8 +39,8 @@
             })();
         }
 
-        this.images[0].src = '../images/asteroids/starship.png'
-        this.images[1].src = '../images/asteroids/starship2.png'
+        this.images[0].src = 'images/asteroids/starship.png'
+        this.images[1].src = 'images/asteroids/starship2.png'
     }
 
     Game.prototype.addAsteroids = function (numAsteroids) {

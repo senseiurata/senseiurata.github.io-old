@@ -14,13 +14,7 @@ module.exports = React.createClass({
   render: function render () {
     var menuOpen = this.state.menuOpen;
     var path = this.props.location.pathname;
-
-    // can't use <use> in react :'(
-    var useTagWorkaround = {
-      __html: '<title>' + (menuOpen ? 'Menu Close' : 'Menu Open') + '</title>' + 
-              '<use xlink:href="images/header.svg#' + (menuOpen ? 'close' : 'hamburger') + '"></use>'
-    };
-
+    var menuSvgPath = 'images/header.svg#' + (menuOpen ? 'close' : 'hamburger');
 
     return (
       <header>
@@ -58,7 +52,9 @@ module.exports = React.createClass({
         </nav>
 
         <button className="menu-toggle" onClick={ this.handleMenuClick }>
-          <svg className="menu-icon" viewBox="0 0 48 48" dangerouslySetInnerHTML={ useTagWorkaround }>
+          <svg className="menu-icon" viewBox="0 0 48 48">
+            <title>{ menuOpen ? 'Menu Close' : 'Menu Open'}</title>
+            <use xlinkHref={ menuSvgPath }></use>
           </svg>
         </button>
       </header>
