@@ -3,7 +3,7 @@ var React = require('react');
 module.exports = React.createClass({
   render: function render () {
     return (
-      <footer>
+      <footer className="site-footer">
         <ul className="social-links">
           <li>
             <a href="https://github.com/senseiurata">Github</a>

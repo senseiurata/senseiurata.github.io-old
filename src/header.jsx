@@ -17,7 +17,7 @@ module.exports = React.createClass({
     var menuSvgPath = 'images/header.svg#' + (menuOpen ? 'close' : 'hamburger');
 
     return (
-      <header>
+      <header className="site-header">
         <h1>
           <Link to="/">Ken's Web Portfolio</Link>
         </h1>

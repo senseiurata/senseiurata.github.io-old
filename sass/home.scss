@@ -1,16 +1,13 @@
+@import 'globals/colors';
+
 .home-page {
   display: flex;
   align-items: center;
-  position: fixed;
-  top: 3rem;
-  right: 0;
-  bottom: 3rem;
-  left: 0;
   overflow-y: auto;
   text-align: center;
 
-  .content {
-    margin: 0 auto;
+  > .content {
+    margin: auto;
     max-width: 50rem;
   }
 
@@ -45,14 +42,14 @@
     display: inline-block;
     padding: 0.5rem;
     color: rgb(255, 255, 255);
-    background-color: #5bc0de;
+    background-color: $link-base-color;
     border-bottom: 0.25rem solid #1688aa;
     text-decoration: none;
     border-radius: 0.25rem;
     font-size: 1.25rem;
 
     &:hover {
-      background-color: #4bb0ce;
+      background-color: $link-dark-color;
       color: rgb(255, 255, 255);
       text-decoration: none;
     }

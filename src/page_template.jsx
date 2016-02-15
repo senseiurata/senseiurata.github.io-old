@@ -4,7 +4,7 @@ var Link = require('react-router').Link;
 module.exports = React.createClass({
   render: function render () {
     return (
-      <main className={ "page-template " + this.props.cssClass }>
+      <main className={ "page-template " + (this.props.cssClass || '') }>
         <section>
           <h1>{ this.props.pageName }</h1>
 

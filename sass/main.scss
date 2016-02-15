@@ -1,5 +1,6 @@
 .main-container {
   display: flex;
+  flex-direction: column;
   position: relative;
   height: 100%;
   z-index: 0;
@@ -16,5 +17,19 @@
     bottom: 0;
     left: 0;
     background: rgba(0, 0, 0, 0.85);
+  }
+
+  > header,
+  > footer {
+    flex: 0 0 3rem;
+  }
+
+  > main {
+    flex: 1 1 auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    overflow-y: auto;
   }
 }

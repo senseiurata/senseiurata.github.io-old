@@ -1,20 +1,12 @@
-.page-template {
-  display: block;
-  position: fixed;
-  top: 3rem;
-  right: 0;
-  bottom: 3rem;
-  left: 0;
-  overflow-y: auto;
+@import 'globals/colors';
 
+main {
   > section {
-    position: relative;
-    margin: 0 auto;
-    max-width: 50rem;
-    top: 3rem;
-    box-sizing: border-box;
+    margin: auto;
+    width: 100%;
+    max-width: 46rem;
     padding: 2rem;
-    background: rgb(239, 239, 239);
+    background: $content-background-color;
     color: rgb(48, 48, 48);
 
     > h1 {
@@ -33,7 +25,7 @@
     display: inline-block;
     padding: 0.5rem;
     color: rgb(255, 255, 255);
-    background-color: #5bc0de;
+    background-color: $link-base-color;
     border-bottom: 0.25rem solid #1688aa;
     text-decoration: none;
     border-radius: 0.25rem;
@@ -41,17 +33,17 @@
     text-align: center;
 
     &:hover {
-      background-color: #4bb0ce;
+      background-color: $link-dark-color;
       color: rgb(255, 255, 255);
       text-decoration: none;
     }
   }
 
   a {
-    color: #5bc0de;
+    color: $link-base-color;
 
     &:hover {
-      color: #4bb0ce;
+      color: $link-dark-color;
     }
   }
 }

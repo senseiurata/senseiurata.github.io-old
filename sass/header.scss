@@ -1,17 +1,21 @@
-header {
+@import 'globals/site';
+@import 'globals/colors';
+
+.site-header {
   display: flex;
   justify-content: space-between;
-  position: fixed;
-  left: 0;
-  right: 0;
   padding: 0 0.75rem;
-  margin: 0 auto;
-  max-width: 64rem;
+  max-width: $site-content-max-width;
   z-index: 1;
 
   a {
+    color: rgb(255, 255, 255);
     font-size: 1rem;
     text-transform: uppercase;
+
+    &.state-open {
+      color: $link-dark-color;
+    }
   }
 
   nav {
@@ -33,10 +37,6 @@ header {
         a {
           display: block;
           padding: 1rem 1.5rem;
-
-          .state-open {
-            color: #4bb0ce;
-          }
         }
       }
     }
@@ -61,7 +61,7 @@ header {
 }
 
 @media screen and (min-width: 50rem) {
-  header {
+  .site-header {
     nav {
       display: block;
       position: static;
@@ -78,7 +78,7 @@ header {
 
           a {
             &.state-open {
-              color: #5bc0de;
+              color: $link-base-color;
             }
           }
         }

@@ -5,6 +5,7 @@ module.exports = React.createClass({
   render: function render () {
     return (
       <PageTemplate
+        cssClass="contact"
         pageName="Contact"
         nextLink="/"
         nextText="Back to Home"
