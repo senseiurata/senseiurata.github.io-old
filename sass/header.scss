@@ -1,11 +1,8 @@
-@import 'globals/site';
 @import 'globals/colors';
 
 .site-header {
   display: flex;
   justify-content: space-between;
-  padding: 0 0.75rem;
-  max-width: $site-content-max-width;
   z-index: 1;
 
   a {

@@ -1,3 +1,5 @@
+@import 'globals/site';
+
 .main-container {
   display: flex;
   flex-direction: column;
@@ -22,6 +24,10 @@
   > header,
   > footer {
     flex: 0 0 3rem;
+    box-sizing: border-box;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 0.75rem;
   }
 
   > main {

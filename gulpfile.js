@@ -14,7 +14,7 @@ var watchify = require('watchify');
 
 var bundler = watchify(browserify({
   entries: ['./src/app.jsx'],
-  transform: [[ 'babelify', { 'presets': ['react'] }] ],
+  transform: [[ 'babelify', { 'presets': ['es2015', 'react'] }] ],
   extensions: ['.jsx'],
   debug: true,
   cache: {},
