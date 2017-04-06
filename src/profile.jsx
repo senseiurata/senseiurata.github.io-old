@@ -9,7 +9,7 @@ module.exports = React.createClass({
           <img className="profile-pic" src="images/profile-1.jpg" alt="" />
           <div>
             <h1>Ken Urata</h1>
-            <h2>Javascript / Ruby on Rails Developer</h2>
+            <h2>Javascript Developer</h2>
             <p>
               It all started when I was 6 - I started dabbling around in QBASIC.
               My idea of having "fun" was to create the most confusing run of GOTOs.
@@ -18,9 +18,8 @@ module.exports = React.createClass({
             </p>
             <p>
               Since then, I've studied plenty of languages including C/C++, Java, PHP, etc,
-              and eventually found the most joy in web development with Ruby on Rails and
-              JavaScript. I love digging into both the front-end and back-end, having a
-              good feel for the whole application.
+              and eventually found the most joy in front-end web development with
+              JavaScript.
             </p>
             <p>
               Take a look at the projects I have worked on, and get in touch if you like
